@@ -1,59 +1,25 @@
-"use client";
+import { Header } from "@/components/home/header";
+import { NewsSection } from "@/components/home/news-section";
+import { UpcomingContests } from "@/components/home/upcoming-contests";
+import { CommentStream } from "@/components/home/comment-stream";
+import { NewProblems } from "@/components/home/new-problems";
 
-import * as React from "react";
-import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from "lucide-react";
-
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
-} from "@/components/ui/navigation-menu";
-
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-
-export default function Home() {
+export default function HomePage() {
   return (
-    <div>
-      <NavigationMenu>
-        <NavigationMenuList>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Home</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <NavigationMenuLink>Link</NavigationMenuLink>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <Button>
-            <Link href="/problems">Problems</Link>
-          </Button>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Submissions</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <NavigationMenuLink>Link</NavigationMenuLink>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Contests</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <NavigationMenuLink>Link</NavigationMenuLink>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <Button>
-            <Link href="/about">About Us</Link>
-          </Button>
-          <Button>
-            <Link href="/leaderboard">Leaderboard</Link>
-          </Button>
-          <Button>
-            <Link href="/login">Login/Sign Up</Link>
-          </Button>
-        </NavigationMenuList>
-      </NavigationMenu>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+      <Header />
+      <main className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="lg:col-span-2">
+            <NewsSection />
+          </div>
+          <div className="space-y-6">
+            <UpcomingContests />
+            <CommentStream />
+            <NewProblems />
+          </div>
+        </div>
+      </main>
     </div>
   );
 }
